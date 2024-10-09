@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Study</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0E7D8; /* Light sand color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+        }
+        h1 {
+            color: #6D4C41; /* Brownish color */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background:#E8F5E9; 
+            padding: 30px;
+            border-radius: 10px; /* Slightly rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+            max-width: 500px; 
+            width: 100%; 
+        }
+        .form-group {
+            margin-bottom: 20px; 
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            display: block; 
+            color: #4A8EBA; /* Teal color for labels */
+        }
+        input[type="text"], textarea, select {
+            width: 100%; 
+            padding: 10px;
+            border: 1px solid #4A8EBA; /* Teal border */
+            border-radius: 5px; /* Rounded borders */
+            box-sizing: border-box; 
+            transition: border-color 0.3s; 
+        }
+        input[type="text"]:focus, textarea:focus, select:focus {
+            border-color: #E07A00; /* Golden orange on focus */
+            outline: none; 
+        }
+        button {
+            background-color: #FFAA00; /* Bright amber for button */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%; 
+        }
+        button:hover {
+            background-color: #E07A00; /* Darker amber on hover */
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between; 
+            margin-top: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #D65D8E; /* Pinkish color for links */
+            align-self: center; 
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <h1>Add Study</h1>
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="study_name">Study Name:</label>
+            <input type="text" name="study_name" placeholder="Enter study name" title="Please enter the name of the study" required>
+        </div>
+
+        <div class="form-group">
+            <label for="study_description">Study Description:</label>
+            <textarea name="study_description" placeholder="Enter study description" title="Provide a brief description of the study" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="study_phase">Study Phase:</label>
+            <select name="study_phase" required title="Select the phase of the study">
+                <option value="" disabled selected>Select a phase</option>
+                <option value="Phase I">Phase I</option>
+                <option value="Phase II">Phase II</option>
+                <option value="Phase III">Phase III</option>
+                <option value="Phase IV">Phase IV</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sponsor_name">Sponsor Name:</label>
+            <input type="text" name="sponsor_name" placeholder="Enter sponsor name" title="Enter the name of the sponsor" required>
+        </div>
+
+        <div class="button-group">
+            <button type="submit">Save</button>
+            <a href="{% url 'study_list' %}">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>

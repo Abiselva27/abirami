@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Study</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            background-color: #F0E7D8; /* Light sand color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+            text-align: center; /* Center text */
+        }
+        h1 {
+            color: #6D4C41; /* Brownish color */
+            margin-bottom: 20px;
+        }
+        .study-details {
+            background: #FFFFFF; /* White background for details */
+            padding: 30px;
+            border-radius: 10px; /* Slightly rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+            max-width: 500px; /* Set max width for details */
+            width: 100%; /* Full width */
+            text-align: left; /* Align text to the left for details */
+        }
+        p {
+            margin: 10px 0; /* Spacing between paragraphs */
+            line-height: 1.5; /* Improved line spacing */
+        }
+        strong {
+            color: #4A8EBA; /* Teal color for labels */
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #FFAA00; /* Bright amber color for links */
+            font-size: 16px;
+            transition: color 0.3s; /* Transition effect on hover */
+        }
+        a:hover {
+            color: #E07A00; /* Darker amber on hover */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="study-details">
+        <h1>View Study</h1>
+        <p><strong>Study ID:</strong> {{ study.id }}</p>
+        <p><strong>Study Name:</strong> {{ study.study_name }}</p>
+        <p><strong>Sponsor Name:</strong> {{ study.sponsor_name }}</p>
+        <p><strong>Study Description:</strong> {{ study.study_description }}</p>
+        <p><strong>Study Phase:</strong> {{ study.study_phase }}</p>
+        <a href="{% url 'study_list' %}">Back to Study List</a>
+    </div>
+</body>
+</html>
