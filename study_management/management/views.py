@@ -47,7 +47,7 @@ def edit_study(request, study_id):
             study.study_phase = request.POST['study_phase']
             study.sponsor_name = request.POST['sponsor_name']
             study.save()
-            logger.info(f"Study '{study.study_name}' updated successfully.")
+            logger.info(f"Study '{study.study_name}' It is updated successfully.")
             return redirect('study_list')
         except Exception as e:
             logger.error(f"Error updating study with ID {study_id}: {str(e)}")
